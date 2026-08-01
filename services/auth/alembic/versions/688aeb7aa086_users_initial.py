@@ -1,7 +1,7 @@
 """users initial
 
 Revision ID: 688aeb7aa086
-Revises: 
+Revises:
 Create Date: 2026-08-01 12:20:13.285471
 
 """

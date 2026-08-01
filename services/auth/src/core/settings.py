@@ -11,18 +11,20 @@ class CustomBaseSettings(BaseSettings):
 
 class AppConfig(CustomBaseSettings):
     PROJECT_NAME: str
-    PROJECT_VERSION: str = "0.1.0"
-    PROJECT_DESCRIPTION: str = "auth API"
+    PROJECT_VERSION: str = '0.1.0'
+    PROJECT_DESCRIPTION: str = 'auth API'
 
 
 class DatabaseConfig(CustomBaseSettings):
     DB_HOST: str
     DB_PORT: int
     DB_USER: str
-    DB_PASSWORD: str
+    DB_PASS: str
     DB_NAME: str
 
-    PG_SCHEME = "postgresql+asyncpg"
+    PG_ECHO: bool = True
+
+    PG_SCHEME: str = 'postgresql+asyncpg'
 
     def get_sqlalchemy_database_uri(self, scheme: str) -> str:
         return PostgresDsn.build(
@@ -36,7 +38,7 @@ class DatabaseConfig(CustomBaseSettings):
 
 
 class SentryConfig(CustomBaseSettings):
-    SENTRY_DSN: str
+    SENTRY_KEY: str
 
 
 class MainConfig(BaseModel):
