@@ -1,0 +1,16 @@
+services:
+  db-auth:
+    image: postgres:15-alpine
+    container_name: db-auth
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_HOST_AUTH_METHODS: trust
+    env_file:
+      - ./environment/.env
+    volumes:
+      - pgdata-auth:/var/lib/postgresql/data
+
+volumes:
+  pgdata-auth:
