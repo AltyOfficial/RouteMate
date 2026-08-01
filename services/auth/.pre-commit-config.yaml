@@ -1,9 +1,12 @@
+exclude: '.*\.env\.example$'
+
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
+        exclude: '^\.env\.example$'
       - id: check-yaml
       - id: check-added-large-files
 
@@ -20,4 +23,3 @@ repos:
         language: system
         pass_filenames: false
         always_run: true
-        dir: services/auth
