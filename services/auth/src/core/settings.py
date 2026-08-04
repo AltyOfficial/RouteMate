@@ -10,17 +10,17 @@ class CustomBaseSettings(BaseSettings):
 
 
 class AppConfig(CustomBaseSettings):
-    PROJECT_NAME: str
+    PROJECT_NAME: str = 'RouteMate Auth'
     PROJECT_VERSION: str = '0.1.0'
     PROJECT_DESCRIPTION: str = 'auth API'
 
 
 class DatabaseConfig(CustomBaseSettings):
-    DB_HOST: str
-    DB_PORT: int
-    DB_USER: str
-    DB_PASS: str
-    DB_NAME: str
+    DB_HOST: str = 'localhost'
+    DB_PORT: int = 5432
+    DB_USER: str = 'postgres'
+    DB_PASS: str = 'postgres'
+    DB_NAME: str = 'test_database'
 
     PG_ECHO: bool = True
 
@@ -38,7 +38,7 @@ class DatabaseConfig(CustomBaseSettings):
 
 
 class SentryConfig(CustomBaseSettings):
-    SENTRY_KEY: str
+    SENTRY_KEY: str = ''
 
 
 class MainConfig(BaseModel):
