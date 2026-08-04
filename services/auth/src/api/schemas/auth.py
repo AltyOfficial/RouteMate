@@ -4,7 +4,12 @@ from uuid import UUID
 from pydantic import BaseModel, ConfigDict
 
 
-class UserBaseDTO(BaseModel):
+class UserRegisterSchema(BaseModel):
+    login: str
+    password: str
+
+
+class UserResponseSchema(BaseModel):
     model_config = ConfigDict(from_attributes=True)
 
     id: UUID
@@ -13,10 +18,3 @@ class UserBaseDTO(BaseModel):
     is_verified: bool
     created_at: datetime
     updated_at: datetime
-
-
-class UserCreateDTO(BaseModel):
-    model_config = ConfigDict(from_attributes=True)
-
-    login: str
-    password: str
