@@ -20,7 +20,7 @@ class DatabaseConfig(CustomBaseSettings):
     DB_PORT: int = 5432
     DB_USER: str = 'postgres'
     DB_PASS: str = 'postgres'
-    DB_NAME: str = 'test_database'
+    DB_NAME: str = 'test_db'
 
     PG_ECHO: bool = True
 

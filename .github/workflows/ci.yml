@@ -17,7 +17,7 @@ jobs:
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: test_database
+          POSTGRES_DB: test_db
         ports:
           - 5432:5432
         options: >-
@@ -47,11 +47,6 @@ jobs:
           python-version-file: "${{ matrix.service }}/pyproject.toml"
 
       - name: Run Pytest
-        env:
-          DATABASE_URL: "postgresql+asyncpg://postgres:postgres@localhost:5432/test_database"
-          SECRET_KEY: "ci-test-secret-key"
-          ALGORITHM: "HS256"
-          ACCESS_TOKEN_EXPIRE_MINUTES: "30"
         run: |
           cd ${{ matrix.service }}
           uv sync
